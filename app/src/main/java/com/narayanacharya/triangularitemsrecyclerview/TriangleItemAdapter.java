@@ -1,5 +1,6 @@
 package com.narayanacharya.triangularitemsrecyclerview;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -9,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TriangleItemAdapter extends RecyclerView.Adapter<TriangleItemAdapter.TriangleViewHolder> {
+class TriangleItemAdapter extends RecyclerView.Adapter<TriangleItemAdapter.TriangleViewHolder> {
 
-    public TriangleItemAdapter() {
+    TriangleItemAdapter() {
         super();
     }
 
@@ -27,14 +28,15 @@ public class TriangleItemAdapter extends RecyclerView.Adapter<TriangleItemAdapte
 
     @Override
     public int getItemCount() {
-        return 500;
+        return 50;
     }
 
     class TriangleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TriangleFrameLayout rootTriangle;
-        TextView itemText;
+        private final TriangleFrameLayout rootTriangle;
+        private final TextView itemText;
 
+        @SuppressLint("RtlHardcoded")
         void bind(int position) {
             // determine whether it's a left or a right triangle
             TriangleFrameLayout.Align align =
